@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hellogo
+  labels:
+    app: hellogo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hellogo
+  template:
+    metadata:
+      labels:
+        app: hellogo
+    spec:
+      containers:
+        - name: hellogo
+          image: ghcr.io/oboltus01/test1/hellogo:latest
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
